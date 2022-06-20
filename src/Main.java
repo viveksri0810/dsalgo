@@ -6,13 +6,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        print3darrayusigwhileloop();
+        bubblesort();
 
     }
 
 
     static void bubblesort(){
 
+        int []  arr={36,19,29,12,5};
+        for(int i=0;i<arr.length;i++){
+
+            for(int j=0;j<arr.length-1-i;j++){
+
+                if(arr[j]>arr[j+1]){
+
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+
+                }
+            }
+        }
+        for (int a:arr){
+            System.out.print(a + " ");
+        }
     }
 
 
@@ -20,13 +37,13 @@ public class Main {
     static void sortting(){
         int [] arr={2,4,5,3,9,6};
         Arrays.sort(arr);
-
+        for (int ar:arr) System.out.println(ar);
 
     }
 
 
     static void print3darrayusigwhileloop(){
-        int arr[][][] ={{{1,2,3,4},{1,}},{{3,4,5},{0,0,0}}};
+        int[][][] arr ={{{1,2,3,4},{1,}},{{3,4,5},{0,0,0}}};
 
 
         for (int[][] a1:arr){
@@ -46,10 +63,10 @@ public class Main {
 
         int [][][] a={{{1,2,3}},{{4,5,6}}};
 
-        for(int i=0;i<a.length;i++){
-            for (int j=0;j<a[i].length;j++){
-                for (int k=0;k<a[i][j].length;k++){
-                    System.out.println(a[i][j][k] + " ");
+        for (int[][] ints : a) {
+            for (int[] anInt : ints) {
+                for (int i : anInt) {
+                    System.out.println(i + " ");
                 }
             }
         }
@@ -354,12 +371,10 @@ public class Main {
         int ss=1;
         for(int i=1;i<=n;i++){
             int a=i;
-//            System.out.println(fs + " " + ss);
 
             for(int j=1;j<=fs;j++){
                 System.out.print(". ");
             }
-//            System.out.print("* ");
 
             for (int j=1;j<=ss;j++){
                 System.out.print(a+" ");
@@ -368,11 +383,8 @@ public class Main {
                 }else {
                     a--;
                 }
-
             }
-//            if(i!=1 && i!=n){
-//                System.out.print("* ");
-//            }
+
 
 
             if(i<=n/2){
@@ -400,8 +412,7 @@ public class Main {
             int comb=1;
             for (int j=0;j<=i;j++){
                 System.out.print(comb+"\t");
-                int newComb=comb*(i-j)/(j+1);
-                comb=newComb;
+                comb= comb*(i-j)/(j+1);
             }
             System.out.println();
         }
@@ -459,7 +470,7 @@ public class Main {
 
 
 
-// shell short
+// she'll short
 
 
     static void shellsort(int[] arr){
