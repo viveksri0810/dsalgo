@@ -6,7 +6,313 @@ public class Main {
 
     public static void main(String[] args) {
 
-        bubblesort();
+        int[] arr={1,4,6,7,2,3,4,5};
+        int mid=3;
+        int low=0;
+        int high=7;
+        merge(arr,low,mid,high);
+        Arrays.stream(arr).forEach(a-> System.out.print(a+" "));
+    }
+
+
+    static void merge(int[] arr,int low,int mid,int high){
+        int [] temp=new int[arr.length];
+        int i=low;
+        int j=mid+1;
+        int k=low;
+
+        while (i<=mid & j<=high){
+            if(arr[i]<arr[j]){
+                temp[k]=arr[i];
+                i++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i<=mid || j<=high ){
+
+            if(i<=mid){
+                temp[k]=arr[i];
+                i++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+
+            k++;
+        }
+
+        while (low<=high){
+            arr[low]=temp[low];
+            low++;
+        }
+
+    }
+
+
+
+
+
+
+
+    static void merging3(){
+        int[] arr={1,4,6,7,2,3,4,5};
+        int mid=3;
+        int low=1;
+        int high=6;
+
+        int i=low;
+        int j=mid+1;
+        int k=low;
+
+        int [] temp=new int[high+1];
+
+        while(i<=mid && j<=high){
+            if(arr[i]<arr[j]){
+                temp[k]=arr[i];
+                i++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+        while (i<=mid || j<=high){
+            if(i<=mid){
+                temp[k]=arr[i];
+                i++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+
+        System.arraycopy(temp, low, arr, low, high + 1 - low);
+
+        Arrays.stream(arr).forEach(a-> System.out.print(a+" "));
+
+    }
+
+    static void merging2(){
+        int[] arr={6,8,9,13,22,2,4,5,6,7,8};
+        int[] temp=new int[arr.length];
+        int mid=0;
+        while(arr[mid+1]>arr[mid]){
+            mid++;
+        }
+        int j=mid+1;
+        int high=arr.length-1;
+        int low=0;
+        int k=0;
+
+        while(low<=mid && j<=high){
+            if(arr[low]<arr[j]){
+                temp[k]=arr[low];
+                low++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (low<=mid || j<=high){
+
+            if(low<=mid){
+                temp[k]=arr[low];
+                low++;
+            }else {
+                temp[k]=arr[j];
+                j++;
+            }
+            k++;
+        }
+
+        Arrays.stream(temp).forEach(a-> System.out.print(a+" "));
+
+
+    }
+
+
+    static void merging1(){
+        int[] arr1={1,3,5,7,9};
+        int[]  arr2={2,4,6,8};
+
+        int m=arr1.length;
+        int n=arr2.length;
+        int[] newarr=new int[m+n];
+
+        int i,j,k;
+        i=j=k=0;
+
+
+        while (i<m && j<n){
+
+            if(arr1[i]<arr2[j]){
+                newarr[k]=arr1[i];
+                i++;
+            }else {
+                newarr[k]=arr2[j];
+                j++;
+            }
+            k++;
+        }
+
+
+        while (i<m || j<n){
+            if(i<m){
+                newarr[k]=arr1[i];
+                i++;
+            }else {
+                newarr[k]=arr1[j];
+                j++;
+            }
+            k++;
+        }
+
+        Arrays.stream(newarr).forEach(a-> System.out.print(a+" "));
+
+    }
+
+    static void merging(){
+        int[] arr={7,9,18,19,22,23,24,1,6,9,11,15,17,18,19};
+        int[] temp=new int[arr.length];
+
+
+        int first=0;
+        int tempmiddle=6; //arr.length/2;
+        int middle= 6; //arr.length/2; //4
+        int last=arr.length-1;
+        int j=0;
+        while(middle+1<=last){
+            if(arr[first]<=arr[middle+1]){
+                temp[j]=arr[first];
+                first++;
+            }else {
+                temp[j]=arr[middle+1];
+                middle++;
+            }
+            j++;
+        }
+        while (first<=tempmiddle){
+            temp[j]=arr[first];
+            first++;
+            j++;
+        }
+
+
+
+        Arrays.stream(temp).forEach(a-> System.out.print(a+" "));
+    }
+
+
+    static void insertionsortforstring(){
+
+        String[] names={"deepak","vivek","nanay","manjula","abhjit","vivek0"};
+
+        for(int i=1;i< names.length;i++){
+            String temp=names[i];
+            int index=i;
+
+            for(int j=i-1;j>=0;j--){
+               if(temp.compareTo(names[j])<0){
+                   names[index]=names[j];
+                   index--;
+                }else {
+                   break;
+               }
+            }
+
+            names[index]=temp;
+        }
+
+        Arrays.stream(names).forEach(a-> System.out.print(a + " "));
+
+    }
+
+
+
+    static void insertionsort(){
+
+
+        int[] arr={5,1,6,2,4};
+        int l=arr.length;
+
+        for(int i=1;i<l;i++){
+
+            int temp=arr[i];
+            int index=i;
+
+            for (int j=i-1;j>=0;j--){
+
+                if(arr[j]>temp){
+                    arr[index]=arr[j];
+                    index--;
+                }else {
+                    break;
+                }
+            }
+            arr[index]=temp;
+        }
+
+        Arrays.stream(arr).forEach(a -> System.out.print(a+" "));
+    }
+
+    static void selectionsort(){
+
+        int[] arr={38,52,9,2,2,2,2,2,18,3,3,3,3,6,1,62,13};
+
+        for(int i=arr.length-1;i>1;i--){
+
+            //for fidning max num
+            int l=0;
+            for(int j=1;j<i;j++){
+                if(arr[l]<arr[j]){
+                    l=j;
+                }
+            }
+
+            if(arr[i]<arr[l]){
+                int temp=arr[i];
+                arr[i]=arr[l];
+                arr[l]=temp;
+            }
+
+            for(int a: arr) System.out.print(a + " ");
+            System.out.println();
+        }
+
+
+    }
+
+
+    static void bubblesortstring(){
+
+        String[] names={"deepak","vivek","nanay","manjula","abhjit","vivek0"};
+
+
+        for(int i=0;i<names.length;i++){
+            boolean flag=false;
+            for (int j=0;j< names.length-1-i;j++){
+                if(names[j].compareTo(names[j+1])>0){
+                    String temp=names[j];
+                    names[j]=names[j+1];
+                    names[j+1]=temp;
+                    flag=true;
+                }
+            }
+            if(!flag){
+                break;
+            }
+        }
+        for (String str: names){
+            System.out.print(str + " ");
+        }
+
 
     }
 
@@ -15,16 +321,18 @@ public class Main {
 
         int []  arr={36,19,29,12,5};
         for(int i=0;i<arr.length;i++){
-
+            boolean bol=false;
             for(int j=0;j<arr.length-1-i;j++){
-
                 if(arr[j]>arr[j+1]){
-
                     int temp=arr[j];
                     arr[j]=arr[j+1];
                     arr[j+1]=temp;
-
+                    bol=true;
                 }
+            }
+
+            if(!bol){
+                break;
             }
         }
         for (int a:arr){
