@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -232,7 +230,7 @@ public class Main {
     }
 
 
-    static void merge(int @NotNull [] arr, int low, int mid, int high) {
+    static void merge(int  [] arr, int low, int mid, int high) {
         int[] temp = new int[arr.length];
         int i = low;
         int j = mid + 1;
